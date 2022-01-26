@@ -1531,8 +1531,8 @@ script:
                 before: *DEFAULT_DND_START
               - "{{ (DEFAULT_MEDIA_PLAYER_ALEXA not in INVALIDATE and alexa not in INVALIDATE) or
                 (DEFAULT_MEDIA_PLAYER_GOOGLE not in INVALIDATE and google not in INVALIDATE)}}"
-              - "{{states('binary_sensor.dnd') != 'on'}}"
-              # - "{{expand(states.person)|selectattr('state','eq','home')|list|count > 0}}"
+              - "{{states('input_boolean.sleep_mode') != 'on'}}"
+              - "{{expand(states.person)|selectattr('state','eq','home')|list|count > 0}}"
             sequence:
               - alias: TTS ALEXA
                 choose:
